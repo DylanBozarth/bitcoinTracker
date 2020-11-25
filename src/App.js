@@ -11,13 +11,15 @@ const Bitcoin = () => {
         console.log(resp);
         setData(resp);
       });
+     // document.title = `Bitcoin price is ${data.USD.buy}`;
   }, []);
-
-  return (
-    <div className="App">
-      <header className="App-header"></header>
+if (data !== null) {
+return ( 
+  <div className="App">
+      <header className="App-header">Bitcoin is {data.USD.buy}  </header>
     </div>
-  );
+)} 
+else return <h1>aaa</h1>
 };
 
 export default Bitcoin;
