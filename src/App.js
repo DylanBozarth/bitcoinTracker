@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+
+import React from 'react'
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class Bitcoin extends React.Component {
+    componentDidMount(){
+        fetch('https://blockchain.info/ticker') /* returns a promise */ 
+        
+        .then (this.setState(data)) /* change the json into the array */ 
+    }
+    constructor() {
+        super();
+        this.state = {
+            data: []
+        }
+      }
+    render() {
+      return <h1>Hello {this.state.data} </h1>;
+    }
+  }
 
-export default App;
+export default Bitcoin;
