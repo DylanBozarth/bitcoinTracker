@@ -1,23 +1,31 @@
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 import './App.css';
 
-class Bitcoin extends React.Component {
-    componentDidMount(){
-        fetch('https://blockchain.info/ticker') /* returns a promise */ 
+
+
+function Bitcoin() {
+  
+  fetch('https://blockchain.info/ticker') // Call the fetch function passing the url of the API as a parameter
+  .then((resp) => resp.json()) // Transform the data into json
+.then(function(resp) {
+    setData({data: resp.json()})
+    console.log(data)
+    
+})
+  
+const [data, setData] = useState();
+  return (
+    <div className="App">
+      <header className="App-header">
         
-        .then (this.setState(data)) /* change the json into the array */ 
-    }
-    constructor() {
-        super();
-        this.state = {
-            data: []
-        }
-      }
-    render() {
-      return <h1>Hello {this.state.data} </h1>;
-    }
-  }
+       
+      
+        
+      </header>
+    </div>
+  );
+}
 
 export default Bitcoin;
