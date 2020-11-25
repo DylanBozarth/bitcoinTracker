@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 
 const Bitcoin = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     fetch("https://blockchain.info/ticker") // Call the fetch function passing the url of the API as a parameter
@@ -11,15 +11,23 @@ const Bitcoin = () => {
         console.log(resp);
         setData(resp);
       });
-     // document.title = `Bitcoin price is ${data.USD.buy}`;
   }, []);
-if (data !== null) {
-return ( 
-  <div className="App">
-      <header className="App-header">Bitcoin is {data.USD.buy}  </header>
-    </div>
-)} 
-else return <h1>aaa</h1>
+  if (data !== null) {
+    return (
+      <div className="App">
+        <header className="App-header container-fluid">
+          <div className="col-sm-6">
+          <img
+            src="./bitcoin.png"
+            width="100px"
+            height="100px"
+            className="img-fluid"
+          ></img>
+          1 Bitcoin = ${data.USD.buy} {" "}
+        </div></header>
+      </div>
+    );
+  } else return <h1>aaa</h1>;
 };
 
 export default Bitcoin;
