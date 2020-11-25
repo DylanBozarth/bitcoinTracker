@@ -15,8 +15,8 @@ const Bitcoin = () => {
   if (data !== null) {
     return (
       <div className="App">
-        <header className="App-header container-fluid">
-          <div className="col-sm-6">
+        <header className="container-fluid">
+          <div className="col-sm-4 bitcoin">
           <img
             src="./bitcoin.png"
             width="100px"
@@ -27,7 +27,7 @@ const Bitcoin = () => {
         </div></header>
       </div>
     );
-  } else return <h1>aaa</h1>;
+  } else return <h1>Loading...</h1>;
 };
 
 export default Bitcoin;
