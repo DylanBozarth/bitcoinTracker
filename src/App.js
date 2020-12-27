@@ -14,17 +14,36 @@ const Bitcoin = () => {
   }, []);
   if (data !== null) {
     return (
-      <div className="App">
-        <header className="container-fluid">
+      <div className="App container-fluid">
+        <div className="row text-center">
           <div className="col-sm-4 bitcoin">
-          <img
-            src="./bitcoin.png"
-            width="100px"
-            height="100px"
-            className="img-fluid"
-          ></img>
-          1 Bitcoin = ${data.USD.buy} {" "}
-        </div></header>
+            <img
+              src="./bitcoin.png"
+              width="100px"
+              height="100px"
+              className="img-fluid"
+            ></img>
+            1 Bitcoin = ${data.USD.buy}{" "}
+          </div>
+          <div className="col-sm-4 bitcoin">
+            <img
+              src="./bitcoin.png"
+              width="100px"
+              height="100px"
+              className="img-fluid"
+            ></img>
+            1 Bitcoin = ${data.USD.buy}{" "}
+          </div>
+          <div className="col-sm-4 bitcoin">
+            <img
+              src="./bitcoin.png"
+              width="100px"
+              height="100px"
+              className="img-fluid"
+            ></img>
+            1 Bitcoin = ${data.USD.buy}{" "}
+          </div>
+        </div>
       </div>
     );
   } else return <h1>Loading...</h1>;

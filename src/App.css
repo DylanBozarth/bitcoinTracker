@@ -2,7 +2,9 @@
   background-color: darkblue; 
   height: 100vh;
 }
-
+body {
+  background-color: black;
+}
 
 .bitcoin {
   background-color: grey;
