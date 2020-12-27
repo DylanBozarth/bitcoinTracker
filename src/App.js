@@ -12,6 +12,10 @@ const Bitcoin = () => {
         console.log(resp);
         setData(resp);
       });
+
+
+
+      
   }, []);
   if (data !== null) {
     return (
