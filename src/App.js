@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import  moment from 'moment'
 const changepage = {
   in: {
     opacity: 1,
@@ -29,10 +30,14 @@ const floatTransition2 = {
 const floatTransition3 = {
   duration: 1.7
 }
+function refreshPage() {
+  window.location.reload(false);
+}
 const Bitcoin = () => {
   const [data, setData] = useState(null);
   const [ethData, setEthData] = useState(null);
   const [liteData, setLiteData] = useState(null);
+  const time = moment().format('MMMM Do YYYY, h:mm:ss a');
   useEffect(() => {
     fetch("https://blockchain.info/ticker") // Call the fetch function passing the url of the API as a parameter
       .then((resp) => resp.json()) // Transform the data into json
@@ -74,7 +79,7 @@ const Bitcoin = () => {
               className="img-fluid"
               alt="bitcoin"
             ></img>
-            1 Bitcoin = ${data.USD.buy}{" "}
+            1 Bitcoin  <br />${data.USD.buy}{" "}
           </motion.div>
           <motion.div className="col-sm-4 bitcoin" initial="out"
       animate="in"
@@ -88,7 +93,7 @@ const Bitcoin = () => {
               className="img-fluid"
               alt="eth"
             ></img>
-            1 Ethereum = ${ethData.ethereum.usd}{" "}
+            1 Ethereum  <br />${ethData.ethereum.usd}{" "}
           </motion.div>
           <motion.div className="col-sm-4 bitcoin" initial="out"
       animate="in"
@@ -102,9 +107,12 @@ const Bitcoin = () => {
               alt="doge"
               className="img-fluid"
             ></img>
-            1 LiteCoin = ${liteData.litecoin.usd}
+            1 LiteCoin  <br />${liteData.litecoin.usd}
           </motion.div>
+        
         </div>
+        <p className="price">Price as of: <br /> {time}</p>
+        <button onClick={refreshPage}>Update my prices!</button>
       </motion.div>
     );
   } else return <h1>Loading...</h1>;

@@ -17,3 +17,7 @@ body {
   text-align: center;
   margin-top: 10vh;
 }
+.price {
+  color: white;
+  font-size: 4vh;
+}
