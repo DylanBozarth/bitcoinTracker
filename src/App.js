@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 
 const Bitcoin = () => {
   const [data, setData] = useState(null);
-  const [EthData, setEthData] = useState(null);
-  const [liteDATA, setLiteData] = useState(null);
+  const [ethData, setEthData] = useState(null);
+  const [liteData, setLiteData] = useState(null);
   useEffect(() => {
     fetch("https://blockchain.info/ticker") // Call the fetch function passing the url of the API as a parameter
       .then((resp) => resp.json()) // Transform the data into json
@@ -15,7 +15,7 @@ const Bitcoin = () => {
      fetch('https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=usd') 
      .then((resp) => resp.json()) // Transform the data into json
       .then((resp) => {
-        
+        console.log(resp)
         setLiteData(resp);
       });
       fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd') 
@@ -26,7 +26,7 @@ const Bitcoin = () => {
        }); 
       
   }, []);
-  if (data !== null) {
+  if (data && liteData && ethData !== null) {
     return (
       <div className="App container text-center homepagebox">
         <div className="row ">
@@ -48,7 +48,7 @@ const Bitcoin = () => {
               className="img-fluid"
               alt="eth"
             ></img>
-            1 Etherium = ${" "}
+            1 Ethereum = ${ethData.ethereum.USD}{" "}
           </div>
           <div className="col-sm-4 bitcoin">
             <img
@@ -58,7 +58,7 @@ const Bitcoin = () => {
               alt="doge"
               className="img-fluid"
             ></img>
-            1 LiteCoin = ${liteDATA.litecoin.usd}
+            1 LiteCoin = ${liteData.litecoin.usd}
           </div>
         </div>
       </div>
