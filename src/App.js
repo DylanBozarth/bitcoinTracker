@@ -115,7 +115,7 @@ const Bitcoin = () => {
         <button onClick={refreshPage}>Update my prices!</button>
       </motion.div>
     );
-  } else return <h1>Loading...</h1>;
+  } else return <h1 className="text-center white">Loading...</h1>;
 };
 
 export default Bitcoin;
