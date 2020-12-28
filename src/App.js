@@ -48,7 +48,7 @@ const Bitcoin = () => {
               className="img-fluid"
               alt="eth"
             ></img>
-            1 Ethereum = ${ethData.ethereum.USD}{" "}
+            1 Ethereum = ${ethData.ethereum.usd}{" "}
           </div>
           <div className="col-sm-4 bitcoin">
             <img
