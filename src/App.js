@@ -1,6 +1,34 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-
+import { motion } from "framer-motion";
+const changepage = {
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+};
+const pagetransition = {
+  duration: 1.5,
+};
+const floatIn1 = {
+  in: {
+    y: 0
+  },
+  out: {
+    y: '200vh'
+  },
+}
+const floatTransition = {
+  duration: 1.2
+}
+const floatTransition2 = {
+  duration: 1.5
+}
+const floatTransition3 = {
+  duration: 1.7
+}
 const Bitcoin = () => {
   const [data, setData] = useState(null);
   const [ethData, setEthData] = useState(null);
@@ -28,9 +56,17 @@ const Bitcoin = () => {
   }, []);
   if (data && liteData && ethData !== null) {
     return (
-      <div className="App container text-center homepagebox">
+      <motion.div initial="out"
+      animate="in"
+      exit="out"
+      variants={changepage}
+      transition={pagetransition} className="App container text-center homepagebox">
         <div className="row ">
-          <div className="col-sm-4 bitcoin ">
+          <motion.div initial="out"
+      animate="in"
+      exit="out"
+      variants={floatIn1}
+      transition={floatTransition} className="col-sm-4 bitcoin ">
             <img
               src="./bitcoin.png"
               width="100px"
@@ -39,8 +75,12 @@ const Bitcoin = () => {
               alt="bitcoin"
             ></img>
             1 Bitcoin = ${data.USD.buy}{" "}
-          </div>
-          <div className="col-sm-4 bitcoin">
+          </motion.div>
+          <motion.div className="col-sm-4 bitcoin" initial="out"
+      animate="in"
+      exit="out"
+      variants={floatIn1}
+      transition={floatTransition2}>
             <img
               src="./eth.png"
               width="100px"
@@ -49,8 +89,12 @@ const Bitcoin = () => {
               alt="eth"
             ></img>
             1 Ethereum = ${ethData.ethereum.usd}{" "}
-          </div>
-          <div className="col-sm-4 bitcoin">
+          </motion.div>
+          <motion.div className="col-sm-4 bitcoin" initial="out"
+      animate="in"
+      exit="out"
+      variants={floatIn1}
+      transition={floatTransition3}>
             <img
               src="./doge.png"
               width="100px"
@@ -59,9 +103,9 @@ const Bitcoin = () => {
               className="img-fluid"
             ></img>
             1 LiteCoin = ${liteData.litecoin.usd}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     );
   } else return <h1>Loading...</h1>;
 };

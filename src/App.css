@@ -1,6 +1,7 @@
 .App {
   background-color: darkblue; 
   height: 50vh;
+  overflow: hidden;
 }
 body {
   background-color: black;
