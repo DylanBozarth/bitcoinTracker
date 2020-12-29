@@ -112,7 +112,8 @@ const Bitcoin = () => {
         
         </div>
         <p className="price">Price as of: <br /> {time}</p>
-        <button onClick={refreshPage}>Update my prices!</button>
+        <button onClick={refreshPage} className="btn btn-success">Update my prices!</button>
+        <a href="https://www.coinbase.com/" className="price"><br />Buy Crypto</a>
       </motion.div>
     );
   } else return <h1 className="text-center white">Loading...</h1>;
