@@ -1,13 +1,12 @@
 .App {
   background-color: darkblue; 
-  height: 50vh;
+  height: 100%;
   overflow: hidden;
-  
 }
 body {
   background-color: black;
   background-image: url('./background.jpeg');
-  background-size: 100% ;
+  background-size: stretch;
 }
 
 .bitcoin {
@@ -15,10 +14,11 @@ body {
   border: 5px solid black;
   font-size: 1.6rem;
   color: white;
+  
 }
 .homepagebox {
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 .price {
   color: white;
